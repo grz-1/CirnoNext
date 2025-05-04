@@ -46,6 +46,7 @@ public class ConfigManagerJson implements ConfigManagerInterface {
                 }
             }
         } catch (JsonSyntaxException | JsonIOException e) {
+            Log.e("配置文件读取失败 请检查配置文件格式");
             GlobalVars.globalSettings = new GlobalSettings();
             GlobalVars.applicationSettings = new ApplicationSettings();
             saveConfig();

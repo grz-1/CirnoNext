@@ -26,7 +26,7 @@ public class RWUtils {
     }
 
     public static void writeStringToFile(File file, String value, boolean append) throws IOException {
-        FileUtils.write(file, value + "\n", StandardCharsets.UTF_8, append);
+        FileUtils.write(file, value + "\n", StandardCharsets.UTF_8, append); //追加写入
     }
 
     public static boolean writeFrozen(String path, int value) {
@@ -38,4 +38,5 @@ public class RWUtils {
             return false;
         }
     }
+
 }

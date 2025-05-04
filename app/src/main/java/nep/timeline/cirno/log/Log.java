@@ -50,7 +50,10 @@ public class Log {
     }
 
     public static void execute(String level, String msg) {
-        Handlers.log.post(() -> fileLog(simpleDateFormat.format(new Date()) + " " + level.toUpperCase() + " -> " + msg));
+        if(GlobalVars.LogMethod.equals("File"))
+            Handlers.log.post(() -> fileLog(simpleDateFormat.format(new Date()) + " " + level.toUpperCase() + " -> " + msg));
+        else
+            Handlers.log.post(() -> xposedLog(simpleDateFormat.format(new Date()) + " " + level.toUpperCase() + " -> " + msg));
     }
 
     public static void xposedLog(String msg) {
