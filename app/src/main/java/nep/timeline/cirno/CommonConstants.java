@@ -6,7 +6,7 @@ public interface CommonConstants {
     String NATIVE_PACKAGE_NAME = BuildConfig.APPLICATION_ID;
     String SHELL = "com.android.shell";
     String ANDROID = "android";
-    Set<String> whiteApps = Set.of(
+    Set<String> whiteAppsSys = Set.of(
             NATIVE_PACKAGE_NAME,
             ANDROID,
             SHELL,
@@ -50,6 +50,6 @@ public interface CommonConstants {
 
     static boolean isWhitelistApps(String packageName)
     {
-        return whiteApps.contains(packageName);
+        return whiteAppsSys.contains(packageName);
     }
 }

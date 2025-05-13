@@ -14,4 +14,11 @@ public class PendingIntentKey {
         this.packageName = (String) XposedHelpers.getObjectField(key, "packageName");
         this.userId = XposedHelpers.getIntField(key, "userId");
     }
+    public int getUserId(){
+        return userId;
+    }
+
+    public String getPackageName() {
+        return packageName;
+    }
 }

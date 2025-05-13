@@ -30,8 +30,26 @@ public class AppRecord {
         this.appState = new AppState(this);
     }
 
+
     public boolean isSystem() {
         return packageName == null || equals(InputMethodData.currentInputMethodApp) || PKGUtils.isSystemApp(applicationInfo) || AppConfigs.isWhiteApp(packageName, userId) || CommonConstants.isWhitelistApps(packageName);
+    }
+    public boolean isFrozen(){
+        return frozen;
+    }
+    public void setFrozen(boolean FrozenState) {
+        frozen = FrozenState;
+    }
+
+    public int getUserId(){
+        return userId;
+    }
+    public AppState getAppState() {
+        return appState;
+    }
+
+    public String getPackageName() {
+        return packageName;
     }
 
     public String getPackageNameWithUser() {
@@ -39,7 +57,9 @@ public class AppRecord {
             return packageName;
         return packageName + ":" + userId;
     }
-
+    public List<ProcessRecord> getProcessRecords() {
+        return processRecords;
+    }
     public void reset() {
         this.frozen = false;
         this.appState = new AppState(this);
@@ -55,4 +75,7 @@ public class AppRecord {
             return getUserId() == appRecord.getUserId() && getPackageName().equals(appRecord.getPackageName());
         return false;
     }
+
+
+
 }

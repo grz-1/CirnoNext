@@ -29,12 +29,12 @@ public class RWUtils {
         FileUtils.write(file, value + "\n", StandardCharsets.UTF_8, append); //追加写入
     }
 
-    public static boolean writeFrozen(String path, int value) {
+    public static boolean writeCgroup(String path, int value) {
         try (PrintWriter writer = new PrintWriter(path)) {
             writer.write(Integer.toString(value));
             return true;
         } catch (FileNotFoundException ignored) {
-            Log.e(path + " | 文件不存在, 此进程可能已死亡, 或者你的设备不支持cgroup v2");
+            Log.e(path + " | 文件不存在, 此进程可能已死亡, 或者你的设备不支持这种cgroup v2冻结方式");
             return false;
         }
     }

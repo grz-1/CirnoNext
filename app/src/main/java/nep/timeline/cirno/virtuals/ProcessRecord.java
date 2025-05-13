@@ -20,7 +20,6 @@ public class ProcessRecord {
     private final String processName;
     @Getter(AccessLevel.NONE)
     private AppRecord appRecord;
-    @Setter
     private boolean frozen;
 
     public ProcessRecord(Object instance) {
@@ -42,9 +41,33 @@ public class ProcessRecord {
         return getPid() <= 0;
     }
 
+    public void setFrozen(boolean FrozenState) {
+        frozen = FrozenState;
+    }
+
+    public int getUserId(){
+        return userId;
+    }
+
+    public String getPackageName() {
+        return packageName;
+    }
+
     public AppRecord getAppRecord() {
         if (appRecord == null)
             appRecord = AppService.get(packageName, userId);
         return appRecord;
+    }
+
+    public String getProcessName() {
+        return processName;
+    }
+
+    public int getRunningUid() {
+        return  uid;
+    }
+
+    public boolean isFrozen() {
+        return frozen;
     }
 }

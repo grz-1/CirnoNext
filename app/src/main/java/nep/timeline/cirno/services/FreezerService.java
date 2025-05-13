@@ -21,6 +21,8 @@ public class FreezerService {
 
             FrozenRW.frozen(processRecord.getRunningUid(), processRecord.getPid());
             processRecord.setFrozen(true);
+
+            Log.d("冻结的进程名:"+processRecord.getProcessName());
         }
 
         Handlers.alarms.post(() -> ForceAppStandbyListener.removeAlarmsForUid(appRecord));

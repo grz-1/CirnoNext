@@ -103,7 +103,7 @@ public class BinderService {
             } catch (ErrnoException | IOException e) {
                 Log.e("无法连接至ReKernel服务器");
             } catch (Throwable throwable) {
-                Log.e("ReKernel", throwable);
+                Log.e("ReKernel未知错误", throwable);
             }
         });
     }

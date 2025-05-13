@@ -58,4 +58,21 @@ public class AppState {
         vpn = value;
         return true;
     }
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public boolean isLocation(){
+        return location;
+    }
+    public boolean isAudio(){
+        return audio;
+    }
+    public boolean isRecording(){
+        return recording;
+    }
+    public boolean isVpn(){
+        return vpn;
+    }
 }
